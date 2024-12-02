@@ -1,39 +1,101 @@
 # Strava Activities Tracker
 
-This React Native application, built with Expo, uses Zustand for state management and React Query for data fetching and caching. The app integrates with the Strava API to provide users with their recent activities and monthly statistics. OAuth authentication is implemented using deep linking to securely handle user authentication.
+Aplicación móvil desarrollada con React Native y Expo para rastrear y analizar actividades de Strava.
 
-## Table of Contents
+## Características
 
-- [Features](#features)
-- [Technologies](#technologies)
-- [Setup](#setup)
-- [Project Structure](#project-structure)
-- [Screens](#screens)
-- [State Management](#state-management)
-- [Data Fetching](#data-fetching)
-- [Navigation](#navigation)
-- [Error Handling](#error-handling)
-- [UI/UX](#uiux)
-- [Deep Linking](#deep-linking)
-- [Code Quality](#code-quality)
-- [Documentation](#documentation)
-- [Future Improvements](#future-improvements)
+- Autenticación con Strava mediante OAuth
+- Visualización de actividades recientes
+- Estadísticas mensuales de actividades
+- Interfaz de usuario intuitiva y moderna
 
-## Features
+## Requisitos Previos
 
-- **OAuth Login**: Users can log in via Strava using OAuth authentication.
-- **Deep Linking**: Handles OAuth redirect URIs securely.
-- **Activities Screen**: Displays recent activities with details like name, date, distance, time, and elevation gain.
-- **Monthly Stats Screen**: Aggregates and displays total distance, time, and elevation gain for the past 3 months.
-- **Navigation**: Smooth navigation between screens using Expo Navigation.
-- **Error Handling**: Gracefully handles network errors and provides user feedback during data fetching.
+- Node.js (versión 14 o superior)
+- npm o yarn
+- Expo CLI
+- Cuenta de Strava y credenciales de API
 
-## Technologies
+## Instalación
 
-- **Expo**: A framework and platform for universal React applications.
-- **Zustand**: A small, fast, and scalable state management solution.
-- **React Query**: A powerful data fetching and caching library.
-- **Strava API**: Provides access to user activities and statistics.
-- **OAuth Authentication**: Securely handles user authentication.
-- **Deep Linking**: Handles OAuth redirect URIs.
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/CristianZen77/strava-activities-tracker.git
+cd strava-activities-tracker
+```
 
+2. Instalar dependencias:
+```bash
+npm install
+```
+
+3. Configurar variables de entorno:
+   - Crear un archivo `.env` en la raíz del proyecto
+   - Agregar las siguientes variables:
+   ```
+   STRAVA_CLIENT_ID=tu_client_id
+   STRAVA_CLIENT_SECRET=tu_client_secret
+   STRAVA_REDIRECT_URI=exp://localhost:19000/--/oauth2redirect
+   ```
+
+## Configuración de Strava API
+
+1. Ir a [Strava API Settings](https://www.strava.com/settings/api)
+2. Crear una nueva aplicación
+3. Copiar el Client ID y Client Secret
+4. Configurar el Authorization Callback Domain como: `localhost:19000`
+
+## Ejecutar la Aplicación
+
+1. Iniciar el servidor de desarrollo:
+```bash
+npx expo start
+```
+
+2. Opciones para ejecutar:
+   - Escanear código QR con la app Expo Go en tu teléfono
+   - Presionar 'a' para abrir en emulador de Android
+   - Presionar 'i' para abrir en simulador de iOS (solo en Mac)
+
+## Estructura del Proyecto
+
+```
+strava-activities-tracker/
+├── api/                    # Configuración y llamadas a la API
+├── components/             # Componentes reutilizables
+├── navigation/             # Configuración de navegación
+├── screens/                # Pantallas de la aplicación
+├── state/                  # Manejo de estado con Zustand
+└── utils/                  # Utilidades y helpers
+```
+
+## Tecnologías Utilizadas
+
+- React Native
+- Expo
+- Zustand (manejo de estado)
+- React Query (fetching de datos)
+- React Navigation
+- Axios
+
+## Solución de Problemas
+
+1. Error de puerto en uso:
+   - Usar un puerto alternativo cuando se solicite
+   - Cerrar otras instancias de Expo
+
+2. Problemas de dependencias:
+   - Ejecutar `npm install --legacy-peer-deps`
+   - Verificar compatibilidad de versiones en package.json
+
+## Contribuir
+
+1. Hacer fork del repositorio
+2. Crear una rama para tu feature (`git checkout -b feature/NuevaCaracteristica`)
+3. Hacer commit de tus cambios (`git commit -am 'Agregar nueva característica'`)
+4. Push a la rama (`git push origin feature/NuevaCaracteristica`)
+5. Crear un Pull Request
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT.
