@@ -96,6 +96,4 @@ strava-activities-tracker/
 4. Push a la rama (`git push origin feature/NuevaCaracteristica`)
 5. Crear un Pull Request
 
-## Licencia
 
-Este proyecto está bajo la Licencia MIT.
